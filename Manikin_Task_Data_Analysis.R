@@ -134,7 +134,7 @@ cleanlightdata1 <-
     cleanlightdata1 %>%
     mutate(attitude01 = if_else(attitude < 7, 0, 1))
 
-# Reverse coding intention
+# Reverse coding attitude
 cleanlightdata1 <-
     cleanlightdata1 %>%
     mutate(attitude01.reversed = recode(attitude01, `1` = 0L, `0` = 1L))
