@@ -15,7 +15,7 @@ library(lattice)
 library(splithalf)
 
 # read in data ------
-data1 <- read.csv(here("data_lifespan", "2022-08-23_manikin_final.csv"))
+data1 <- read.csv(here("Data", "manikin_raw_data.csv"))
 
 # tidying data  ------
 # Renaming factors -----
