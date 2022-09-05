@@ -4,3 +4,6 @@ This repository contains `R` scripts to analyze an approach-avoidance task desig
 
 ## Data
 The raw data is available in CSV format in the "Data" directory. The materials used are in the "Materials" directory.
+
+## Archiving
+This repository is also archived on Zenodo: [![DOI](https://zenodo.org/badge/531101032.svg)](https://zenodo.org/badge/latestdoi/531101032)
