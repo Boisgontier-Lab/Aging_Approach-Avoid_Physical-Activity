@@ -101,7 +101,8 @@ cleanlightdata1 <-
 # Reverse coding approach/avoid (=1, vs avoid=0)
 cleanlightdata1 <-
     cleanlightdata1 %>%
-    mutate(avoid.1.approach.0 = recode(approach, `1` = 0L, `0` = 1L))
+    mutate(avoid.1.approach.0 = factor(approach, levels = c(1, 0),
+                                       labels = c(0, 1)))
 
 # reversing coding of correct trial = 1 and error = 0 to correct trial = 0 and error = 1
 cleanlightdata1 <-
@@ -263,17 +264,19 @@ cleanlightmeansdata1 <- cleanlightmeansdata1 %>%
 ## Change variable class
 cleanlightmeansdata1 <-
     cleanlightmeansdata1 %>%
-    mutate(manikintop = as.factor(manikintop),
-           approach = as.factor(approach),
-           stimulus = as.factor(stimulus),
-           trialcode = as.factor(trialcode),
-           geomfigure = as.factor(geomfigure),
-           id = as.factor(id),
+    mutate(manikintop = factor(manikintop),
+           approach = factor(approach),
+           stimulus = factor(stimulus),
+           trialcode = factor(trialcode),
+           geomfigure = factor(geomfigure),
+           id = factor(id),
            age = as.numeric(age),
-           sex01 = as.factor(sex01),
+           sex01 = factor(sex01, levels = c(0, 1)),
            pictograms = as.character(pictograms),
-           chronic01 = as.factor(chronic01),
-           intention01 = as.factor(intention01))
+           chronic01 = factor(chronic01, levels = c(0, 1)),
+           intention01 = factor(intention01, levels = c(0, 1)),
+           attitude01 = factor(attitude01, levels = c(0, 1)),
+           attitude01.reversed = factor(attitude01.reversed, levels = c(0, 1)))
 
 # Adding column latency minus the mean latency for geometrical figures 
 # irrespective of the type of figure (circle, square) and the type of movement (approach, avoid)
