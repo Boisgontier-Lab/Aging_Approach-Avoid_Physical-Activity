@@ -399,7 +399,6 @@ lmm1 <- lmer(latency  ~ 1 + age_c*approach + mvpa_c + chronic01 + sex01 + bmi_c 
              data=data2, subset = stimulus == "ap" & error == 0, REML = TRUE, na.action=na.omit)
 summary(lmm1)
 #confint(lmm1) #95% confidence interval
-#plot(allEffects(lmm1))
 plot(allEffects(lmm1), selection=5)
 r.squaredGLMM(update(lmm1, REML = FALSE)) # Effect sizes were compared with REML=F
 # To test simple effects, replace "approach" with "avoid.1.approach.0"
@@ -410,7 +409,7 @@ lmm2 <- lmer(latency~ 1 + age_c*approach + mvpa_c + chronic01 + sex01 + bmi_c + 
 summary(lmm2)
 #confint(lmm2) #95% confidence interval
 plot(allEffects(lmm2), selection=5)
-r.squaredGLMM(lmm2) # Effect sizes were compared with REML=F
+r.squaredGLMM(update(lmm2, REML = FALSE)) # Effect sizes were compared with REML=F
 
 ### Models testing the effect of GEOMETRICAL stimuli on reaction time
 # interaction age x movement (approach, avoid)  in the geometric figures
@@ -419,7 +418,7 @@ lmm3 <- lmer(latency ~ 1 + age_c*approach + mvpa_c + chronic01 + sex01 + bmi_c +
 summary(lmm3)
 #confint(lmm3) #95% confidence interval
 plot(allEffects(lmm3), selection=5)
-r.squaredGLMM(lmm3) # Effect sizes were compared with REML=F
+r.squaredGLMM(update(lmm3, REML = FALSE)) # Effect sizes were compared with REML=F
 
 ### Models testing the effect of AGE on CORRECTED reaction time
 # interaction age x movement (approach, avoid)  in the physical activity condition
@@ -427,9 +426,8 @@ lmm4 <- lmer(relativelatencygeomdirection  ~ 1 + age_c*approach + mvpa_c + chron
              data=data2, subset = stimulus == "ap" & error == 0, REML = TRUE, na.action=na.omit)
 summary(lmm4)
 #confint(lmm4) #95% confidence interval
-#plot(allEffects(lmm4))
 plot(allEffects(lmm4), selection=5)
-r.squaredGLMM(lmm4) # Effect sizes were compared with REML=F
+r.squaredGLMM(update(lmm4, REML = FALSE)) # Effect sizes were compared with REML=F
 
 # interaction age x movement (approach, avoid) in the sedentary condition
 lmm5 <- lmer(relativelatencygeomdirection  ~ 1 + age_c*approach + mvpa_c + chronic01 + sex01 + bmi_c + (approach|id), 
@@ -437,7 +435,7 @@ lmm5 <- lmer(relativelatencygeomdirection  ~ 1 + age_c*approach + mvpa_c + chron
 summary(lmm5)
 #confint(lmm5) #95% confidence interval
 plot(allEffects(lmm5), selection=5)
-r.squaredGLMM(lmm5) # Effect sizes were compared with REML=F
+r.squaredGLMM(update(lmm5, REML = FALSE)) # Effect sizes were compared with REML=F
 
 ### Models with DICHOTOMIC attitude and intention
 # ATTITUDE x movement (approach, avoid)  in the physical activity condition
@@ -458,7 +456,7 @@ lmm6.2 <- lmer(relativelatencygeomdirection  ~ 1 + attitude01*avoid.1.approach.0
 summary(lmm6.2)
 confint(lmm6.2) #95% confidence interval
 plot(allEffects(lmm6.2))
-r.squaredGLMM(lmm6.2) # Effect sizes were compared with REML=F
+r.squaredGLMM(update(lmm6.2, REML = FALSE)) # Effect sizes were compared with REML=F
 
 # ATTITUDE x movement (approach, avoid) in the sedentary condition
 lmm7 <- lmer(relativelatencygeomdirection  ~ 1 + attitude01.reversed*avoid.1.approach.0  + intention01*avoid.1.approach.0  
@@ -469,7 +467,7 @@ confint(lmm7) #95% confidence interval
 plot(allEffects(lmm7))
 plot(allEffects(lmm7), selection=6)
 plot(allEffects(lmm7), selection=7)
-r.squaredGLMM(lmm7) # Effect sizes were compared with REML=F
+r.squaredGLMM(update(lmm7, REML = FALSE)) # Effect sizes were compared with REML=F
 
 # Same model with the "approach" variable being coded the opposite way, to look at the simple effect
 lmm7.2 <- lmer(relativelatencygeomdirection  ~ 1 + attitude01*avoid.1.approach.0  + intention01*avoid.1.approach.0  
@@ -477,7 +475,7 @@ lmm7.2 <- lmer(relativelatencygeomdirection  ~ 1 + attitude01*avoid.1.approach.0
              data=data2, subset = stimulus == "sed" & error == 0, REML = TRUE, na.action=na.omit)
 summary(lmm7.2)
 confint(lmm7.2) #95% confidence interval
-r.squaredGLMM(lmm7.2) # Effect sizes were compared with REML=F
+r.squaredGLMM(update(lmm7.2, REML = FALSE)) # Effect sizes were compared with REML=F
 
 #################################################################
 ##### Hierarchical model with binomial dependent variable #######
