@@ -547,8 +547,8 @@ r.squaredGLMM(glm6intention)
 glm6.2attitude <- glmer(error  ~ attitude01*avoid.1.approach.0 + error_ratio_geom + (approach|id), family="binomial", 
                data=data2, subset = stimulus == "ap", na.action=na.omit)
 summary(glm6.2attitude)
-confint(glm6.2attitude) #95% confidence interval
-plot(allEffects(glm6.2))
+confint(glm6.2attitude, parm="beta_", method="Wald") #95% confidence interval
+plot(allEffects(glm6.2attitude))
 r.squaredGLMM(glm6.2attitude) 
 
 # ATTITUDE x movement (approach, avoid) in the sedentary condition
@@ -572,11 +572,11 @@ r.squaredGLMM(glm7intention)
 glm7.2attitude <- glmer(error  ~ attitude01*approach  + error_ratio_geom + (approach|id), family="binomial",
                data=data2, subset = stimulus == "sed", na.action=na.omit)
 summary(glm7.2attitude)
-confint(glm7.2attitude) #95% confidence interval
+confint(glm7.2attitude, parm="beta_", method="Wald") #95% confidence interval
 r.squaredGLMM(glm7.2attitude) 
 
 glm7.2intention <- glmer(error ~ intention01*avoid.1.approach.0 + error_ratio_geom + (approach|id), family="binomial",
                         data=data2, subset = stimulus == "sed", na.action=na.omit)
 summary(glm7.2intention)
-confint(glm7.2intention) #95% confidence interval
+confint(glm7.2intention, parm="beta_", method="Wald") #95% confidence interval
 r.squaredGLMM(glm7.2intention) 
