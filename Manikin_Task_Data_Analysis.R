@@ -316,16 +316,6 @@ cleanlightmeansdata1 <- cleanlightmeansdata1 %>%
 data2 <- cleanlightmeansdata1
 
 ## Computing internal consistency for each stimulus of the approach avoidance task
-## splithalf did not recognized that a participant had only NA and should be removed
-## We exclude this "NA participant" with this code
-## data2_splithalf <-
-##   data2 %>%
-##   group_by(id) %>%
-##   mutate(has_approach_and_avoid = any(approach_or_avoid %in% "avoid") &
-##              any(approach_or_avoid %in% "approach")) %>%
-##   ungroup() %>%
-##   filter(has_approach_and_avoid == TRUE)
-
 ## Make a new condition variable grouping together square and circle as neutral
 data2_splithalf <-
     data2 %>%
